@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title>Тестирование ПП</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="buttons.css">
-    <link rel="stylesheet" href="instructions-panel.css">
-    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/instructions-panel.css">
+    <link rel="stylesheet" href="css/popup.css">
     <script type="text/javascript">
       document.onmousedown = function() {
         document.body.setAttribute("class", "is-highlighted");
@@ -84,23 +84,10 @@
       <a href="#" style="left: 1061px; top: 121px; width: 219px; height: 37px" class="link"></a>
     </main>
 
-    <!-- Панель иструкций -->
-        <div class="instructions">
-          <div class="instructions-content">
-            <p class="instructions-text">
-              Вы уже работали с этой заявкой.
-              Понятно ли, на каком этапе вы остановились?
-              Соберите информацию о клиенте, чтобы связаться с ним. Когда закончите, нажмите кнопку «Оценить интерфейс».
-            </p>
-            <div class="instructions-action">
-              <a href="https://b-kontur.typeform.com/to/zhZSCd" target="_blank" onclick="yaCounter35000720.reachGoal('feedback-click'); return true;">
-               <div class="button button-casual small">Оценить интерфейс</div>
-             </a>
-            </div>
-          </div>
-        </div>
-    <!-- Панель иструкций -->
-
+    <script src="js/utils.js" type="application/javascript"></script>
+    <script src="js/load.js" type="application/javascript"></script>
+    <script src="js/create-instructions.js" type="application/javascript"></script>
+    <script src="js/fill-instructions.js" type="application/javascript"></script>
     <script src="popup.js" type="application/javascript"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Тестирование ПП</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="buttons.css">
-    <link rel="stylesheet" href="instructions-panel.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/instructions-panel.css">
     <script type="text/javascript">
       document.onmousedown = function() {
         document.body.setAttribute("class", "is-highlighted");
@@ -79,21 +79,9 @@
       <a href="02-cycle.html" style="left: 255px; top: 224px; width: 135px; height: 46px"></a>
     </main>
 
-    <!-- Панель иструкций -->
-        <div class="instructions">
-          <div class="instructions-content">
-            <p class="instructions-text">
-              Сегодня — 13.02.2017. У вас есть потенциальные продажи, которые нужно обработать.
-            </p>
-            <div class="instructions-action">
-              <a href="https://b-kontur.typeform.com/to/zhZSCd" target="_blank" onclick="yaCounter35000720.reachGoal('feedback-click'); return true;">
-               <div class="button button-casual small">Оценить интерфейс</div>
-             </a>
-            </div>
-          </div>
-        </div>
-    <!-- Панель иструкций -->
-    feedback-click
-
-</body>
+    <script src="js/utils.js" type="application/javascript"></script>
+    <script src="js/load.js" type="application/javascript"></script>
+    <script src="js/create-instructions.js" type="application/javascript"></script>
+    <script src="js/fill-instructions.js" type="application/javascript"></script>
+  </body>
 </html>
