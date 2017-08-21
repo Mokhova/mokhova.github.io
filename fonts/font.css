@@ -1,0 +1,39 @@
+/* Light */
+@font-face {
+  font-family: 'GothamPro-Light';
+  src: url('GothamPro-Light.woff2') format('woff2'),
+       url('GothamPro-Light.woff') format('woff');
+  font-weight: 300;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'GothamPro';
+  src: url('GothamPro.woff2') format('woff2'),
+       url('GothamPro.woff') format('woff');
+  font-weight: 400;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'GothamPro-Medium';
+  src: url('GothamPro-Medium.woff2') format('woff2'),
+       url('GothamPro-Medium.woff') format('woff');
+  font-weight: 500;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'GothamPro';
+  src: url('GothamPro-Bold.woff2') format('woff2'),
+       url('GothamPro-Bold.woff') format('woff');
+  font-weight: 700;
+}
+
+/* Black */
+@font-face {
+  font-family: 'GothamPro';
+  src: url('GothamPro-Black.woff2') format('woff2'),
+       url('GothamPro-Black.woff') format('woff');
+  font-weight: 800;
+}
