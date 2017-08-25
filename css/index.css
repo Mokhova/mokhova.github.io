@@ -1,0 +1,71 @@
+body {
+  width: 100%;
+  font-family: 'Gotham Pro', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header, p, h2 {
+  width: 650px;
+  margin: 50px auto;
+  color: #404040;
+}
+
+h1 {
+  font-size: 44px;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+h1 + p {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 1px;
+  margin-bottom: 35px;
+}
+
+p {
+  line-height: 24px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+a, ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.header-contact {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.contact-links {
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  color: #008EFF;
+  font-weight: bold;
+}
+
+a:hover {
+  background-color: #008EFF;
+  color: #fff;
+}
+
+h2 {
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.fotorama {
+  width: 1000px;
+  margin: 40px auto;
+}
