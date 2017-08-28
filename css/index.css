@@ -5,7 +5,7 @@ body {
   padding: 0;
 }
 
-header, p, h2 {
+header, main {
   width: 650px;
   margin: 50px auto;
   color: #404040;
@@ -29,6 +29,7 @@ p {
   margin-top: 0;
   margin-bottom: 12px;
 }
+
 a, ul {
   list-style-type: none;
   margin: 0;
@@ -62,10 +63,30 @@ a:hover {
 h2 {
   font-size: 34px;
   font-weight: bold;
-  margin-bottom: 50px;
+  margin-bottom: 15px;
 }
 
-.fotorama {
+.paragraph-list {
+  margin-top: -8px;
+}
+
+.paragraph-list li {
+  margin-bottom: 12px;
+}
+
+.paragraph-list li::before {
+  content: '— ';
+  margin-bottom: 24px;
+}
+
+/*.fotorama {
   width: 1000px;
   margin: 40px auto;
+}*/
+
+.fotorama {
+  position: relative;
+  width: 1000px;
+  margin: 0 0 0 -500px;
+  left: 50%;
 }
