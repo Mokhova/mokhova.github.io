@@ -1,365 +1,136 @@
 <!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <title>HTML Academy: Девайс</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&amp;subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="css/fonts.css">
-  </head>
-  <body>
-    <header class="main-header">
-      <h1 class="visually-hidden">Интернет-магазин гаджетов Device</h1>
-      <a class="main-header-logo logo">Device</a>
-      <div class="assistive-navigation">
-        <form class="search-form" method="get" action="https://echo.htmlacademy.ru">
-          <label for="site-search" class="visually-hidden">Поиск по сайту</label>
-          <input class="search-input" type="search" name="site-search" id="site-search" placeholder="Поиск по сайту">
-          <button class="search-button" type="submit">Найти</button>
-        </form>
-        <ul class="assistive-navigation-list">
-          <li class="assistive-navigation-item">
-            <a class="assistive-navigation-link login" href="login.html">Войти</a>
-          </li>
-          <li class="assistive-navigation-item">
-            <a class="assistive-navigation-link compare" href="compare.html">Сравнить</a>
-          </li>
-          <li class="assistive-navigation-item">
-            <a class="assistive-navigation-link cart" href="cart.html">Корзина</a>
-          </li>
-        </ul>
-      </div>
-      <nav class="main-navigation">
-        <ul class="main-navigation-list">
-          <li class="main-navigation-item">
-            <a class="main-navigation-link" href="catalog.html">Каталог товаров</a>
-            <ul class="submenu-list">
-              <li class="submenu-item">
-                <a class="submenu-link" href="virtual-reality.html">Виртуальная реальность</a>
-              </li>
-              <li class="submenu-item">
-                <a class="submenu-link" href="selfie-monopods.html">Моноподы для селфи</a>
-              </li>
-              <li class="submenu-item">
-                <a class="submenu-link" href="action-cameras.html">Экшн-камеры</a>
-              </li>
-              <li class="submenu-item">
-                <a class="submenu-link" href="fitness-band.html">Фитнес-браслеты</a>
-              </li>
-              <li class="submenu-item">
-                <a class="submenu-link" href="smart-watch.html">Умные часы</a>
-              </li>
-              <li class="submenu-item">
-                <a class="submenu-link" href="quadcopters.html">Квадрокоптеры</a>
-              </li>
-            </ul>
-          </li>
-          <li class="main-navigation-item">
-            <a class="main-navigation-link" href="delivery.html">Доставка</a>
-          </li>
-          <li class="main-navigation-item">
-            <a class="main-navigation-link" href="warranty.html">Гарантия</a>
-          </li>
-          <li class="main-navigation-item">
-            <a class="main-navigation-link" href="contacts.html">Контакты</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <main class="container">
-      <section class="promo-slider">
-        <h2 class="visually-hidden">Промо-товары</h2>
-        <!-- 1 слайд -->
-        <div class="promo-slide">
-          <div class="left-column">
-            <img class="promo-slide-photo" src="img/slider-1.png" width="384" height="486" alt="Фото селфи-палки">
-          </div>
-          <div class="right-column">
-            <b class="promo-slide-title">Делай селфи, как Бен Стиллер!</b>
-            <p class="promo-slide-description">
-              Самая длинная палка для селфи доступна в нашем магазине. <br>
-              Восемь (Восемь, Карл!) метров длиной и весом всего 5 килограмм.
-            </p>
-            <a class="button" href="fitness-band-item.html">Подробнее</a>
-            <table class="promo-slide-specs">
-              <tr class="promo-slide-specs-factiod">
-                <td>8,5м</td>
-                <td>5 кг</td>
-                <td>Карбон</td>
-              </tr>
-              <tr>
-                <td>Длина палки</td>
-                <td>Вес палки</td>
-                <td>Материал</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <!-- 2 слайд -->
-        <div class="promo-slide">
-          <div class="left-column">
-            <img class="promo-slide-photo" src="img/slider-2.png" width="345" height="485" alt="Фото фитнес-браслета">
-          </div>
-          <div class="right-column">
-            <b class="promo-slide-title">Худеем правильно!</b>
-            <p class="promo-slide-description">
-              Мотивирующие фитнес-браслеты помогут найти в себе силы <br>
-              не пропускать занятия и соблюдать диету.
-            </p>
-            <a class="button" href="fitness-band-item.html">Подробнее</a>
-            <table class="promo-slide-specs">
-              <tr class="promo-slide-specs-factiod">
-                <td>48 часов</td>
-              </tr>
-              <tr>
-                <td>Без зарядки</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <!-- 3 слайд  -->
-        <div class="promo-slide">
-          <div class="left-column">
-            <img class="promo-slide-photo" src="img/slider-3.png" width="526" height="334" alt="Фото квадрокоптера">
-          </div>
-          <div class="right-column">
-            <b class="promo-slide-title">Порхает как бабочка, жалит как пчела!</b>
-            <p class="promo-slide-description">
-              Этот обычный, на первый взгляд, квадрокоптер оснащен <br>
-              мощным лазером, замаскированным под стандартную камеру.
-            </p>
-            <a class="button" href="fitness-band-item.html">Подробнее</a>
-            <table class="promo-slide-specs">
-              <tr class="promo-slide-specs-factiod">
-                <td>800 м</td>
-                <td>50 м</td>
-              </tr>
-              <tr>
-                <td>Дальность полета</td>
-                <td>Радиус поражения</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="promo-slider-controls">
-          <button class="slider-button slider-button-current" type="button">Первый слайд</button>
-          <button class="slider-button" type="button">Второй слайд</button>
-          <button class="slider-button" type="button">Третий слайд</button>
-        </div>
-      </section>
-      <section class="categories">
-        <h2 class="visually-hidden">Категории товаров</h2>
-        <ul class="category-list">
-          <li class="category-item">
-            <a class="category-link" href="virtual-reality.html">
-              <figure>
-                <img src="img/popular-1.svg" width="90" height="55" alt="Категория «Виртуальная реальность»">
-                 <figcaption>Виртуальная реальность</figcaption>
-              </figure>
-            </a>
-          </li>
-          <li class="category-item">
-            <a class="category-link" href="selfie-monopods.html">
-              <figure>
-                <img src="img/popular-2.svg" width="86" height="117" alt="Категория «Моноподы для селфи»">
-                <figcaption>Моноподы для селфи</figcaption>
-              </figure>
-            </a>
-          </li>
-          <li class="category-item">
-            <a class="category-link" href="action-cameras.html">
-              <figure>
-                <img src="img/popular-3.svg" width="71" height="87" alt="Категория «Экшн-камеры»">
-                <figcaption>Экшн-камеры</figcaption>
-              </figure>
-            </a>
-          </li>
-          <li class="category-item">
-            <a class="category-link" href="fitness-band.html">
-              <figure>
-                <img src="img/popular-4.svg" width="157" height="65" alt="Категория «Фитнес-браслеты»">
-                <figcaption>Фитнес-браслеты</figcaption>
-              </figure>
-            </a>
-          </li>
-          <li class="category-item">
-            <a class="category-link" href="smart-watch.html">
-              <figure>
-                <img src="img/popular-5.svg" width="56" height="98" alt="Категория «Умные часы»">
-                <figcaption>Умные часы</figcaption>
-              </figure>
-            </a>
-          </li>
-          <li class="category-item">
-            <a class="category-link" href="quadcopters.html">
-              <figure>
-                <img src="img/popular-6.svg" width="132" height="69" alt="Категория «Квадрокоптеры»">
-                <figcaption>Квадрокоптеры</figcaption>
-              </figure>
-            </a>
-          </li>
-        </ul>
-      </section>
-      <section class="services">
-        <h2 class="visually-hidden">Услуги</h2>
-        <div class="services-tabs">
-          <button class="service-tab service-tab-current" type="button">Доставка</button>
-          <button class="service-tab button" type="button">Гарантия</button>
-          <button class="service-tab button" type="button">Кредит</button>
-        </div>
-        <!-- 1 вкладка -->
-        <div class="service-content service-delivery">
-          <h3 class="service-title">Доставка</h3>
-          <p>
-            Мы с удовольствием доставим ваш товар прямо к вашему подъезду совершенно бесплатно!
-            Ведь мы неплохо заработаем, поднимая его на ваш этаж.
-          </p>
-        </div>
-        <!-- 2 вкладка -->
-        <div class="service-content service-warranty">
-          <h3 class="service-title">Гарантия</h3>
-          <p>
-            Если из-за возгорания купленного у нас товара у вас сгорит дом — не переживайте,
-            мы выдадим вам новый. Товар, не дом, конечно же.
-          </p>
-        </div>
-        <!-- 3 вкладка -->
-        <div class="service-content service-credit">
-          <h3 class="service-title">Кредит</h3>
-          <p>
-            Залезть в долговую яму стало проще! Кредитные консультанты подберут
-            для вас наиболее выгодные условия кредита. Выгодные для нашего банка, разумеется.
-          </p>
-        </div>
-      </section>
-      <section class="brands">
-        <h2 class="visually-hidden">Бренды</h2>
-        <ul class="brands-list">
-          <li class="brands-item">
-            <a class="brands-link" href="#">
-              <img src="img/logo-1.jpg" width="260" height="100" alt="Djl">
-            </a>
-          </li>
-          <li class="brands-item">
-            <a class="brands-link" href="#">
-              <img src="img/logo-2.jpg" width="260" height="100" alt="SP Gagets">
-            </a>
-          </li>
-          <li class="brands-item">
-            <a class="brands-link" href="#">
-              <img src="img/logo-3.jpg" width="260" height="100" alt="Go Pro">
-            </a>
-          </li>
-          <li class="brands-item">
-            <a class="brands-link" href="#">
-              <img src="img/logo-4.jpg" width="260" height="100" alt="Vive">
-            </a>
-          </li>
-        </ul>
-      </section>
-      <div class="info-container">
-        <section class="about">
-          <h2 class="about-title">О нас</h2>
-          <p>
-            Огромный выбор гаджетов не оставит равнодушным гика, который есть в каждом из нас.
-          </p>
-          <p>
-            Мы можем доставить ваш товар в самые отдаленные точки России!
-            DEVICE работает со многими транспортными компаниями:
-          </p>
-          <ul class="about-delivery">
-            <li class="about-delivery-item">Деловые линии</li>
-            <li class="about-delivery-item">Автотрейдинг</li>
-            <li class="about-delivery-item">ЖелДорЭкспедиция</li>
-          </ul>
-          <a class="button" href="about.html">Подробнее о нас</a>
-        </section>
-        <section class="contacts">
-          <h2 class="contacts-title">Контакты</h2>
-          <p>
-            Вы можете забрать товар сами, заехав в наш офис.
-            Заодно, вы сможете проверить работоспособность покупки. Всякое бывает.
-          </p>
-          <a class="contacts-map" href="https://yandex.ru/maps/">
-            <img src="img/map.jpg" alt="Карта проезда к нашему офису по адресу г. Москва, ул. Строителей, 15">
-          </a>
-          <a class="button">Напишите нам</a>
-        </section>
-      </div>
-    </main>
-    <footer class="main-footer">
-      <div class="footer-top">
-        <a class="main-footer-logo logo">Device</a>
-        <ul class="footer-assistive-navigation-list">
-          <li class="footer-assistive-navigation-item">
-            <a class="footer-assistive-navigation-link login" href="#">Войти</a>
-          </li>
-          <li class="footer-assistive-navigation-item">
-            <a class="footer-assistive-navigation-link compare" href="#">Сравнить</a>
-          </li>
-          <li class="footer-assistive-navigation-item">
-            <a class="footer-assistive-navigation-link cart" href="cart.html">Корзина</a>
-          </li>
-        </ul>
-      </div>
-      <div class="footer-middle">
-        <div>г. Москва, ул. Строителей, 15</div>
-        <ul class="footer-navigation">
-          <li class="footer-navigation-item">
-            <a class="footer-navigation-link" href="delivery.html">Доставка</a>
-          </li>
-          <li class="footer-navigation-item">
-            <a class="footer-navigation-link" href="warranty.html">Гарантия</a>
-          </li>
-          <li class="footer-navigation-item">
-            <a class="footer-navigation-link" href="contacts.html">Контакты</a>
-          </li>
-        </ul>
-        <div>
-          <a class="phone" href="tel:+79385122332">Тел.: +7(495) 495-95-95</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <ul class="footer-social">
-          <li class="social-button vkontakte">
-            <a href="#">Вконтакте</a>
-          </li>
-          <li class="social-button facebook">
-            <a href="#">Фейсбук</a>
-          </li>
-          <li class="social-button twitter">
-            <a href="#">Инстаграм</a>
-          </li>
-        </ul>
-        <a class="copyright" href="https://htmlacademy.ru/intensive/htmlcss">
-          <img src="img/logo-html.svg" width="27" height="35" alt="Сайт HTML Academy">
-        </a>
-      </div>
-    </footer>
-    <section class="modal modal-write-us">
-      <h2 class="visually-hidden">Форма: напишите нам</h2>
-      <form class="write-us-form" method="post" action="https://echo.htmlacademy.ru">
-        <label>
-          Ваше имя:
-          <input type="text" name="name" placeholder="Представьтесь, пожалуйста">
-        </label>
-        <label>
-          Ваш e-mail:
-          <input type="text" name="email" placeholder="Для отправки ответа">
-        </label>
-        <label>
-          Текст письма:
-          <textarea name="text" placeholder="В свободной форме"></textarea>
-        </label>
-        <button class="button" type="submit">Отправить</button>
-        <button class="modal-close" type="button">Закрыть форму</button>
-      </form>
-    </section>
-    <section class="modal modal-map">
-      <h2 class="visually-hidden">Карта: как до нас добраться</h2>
-      <img src="img/modal-map.jpg" width="960" height="559" alt="Офис компании по адресу г. Москва, ул. Строителей, 15">
-      <button class="modal-close" type="button">Закрыть карту</button>
-    </section>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Катя Мохова—дизайнер интерфесов</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Катя Мохова</h1>
+    <p>дизайнер интерфейсов</p>
+    <ul class="header-contact">
+      <li><a class="contact-links" href="https://telegram.me/Mokhova" target="_blank">Telegram</a></li>
+      <li><a class="contact-links" href="https://codepen.io/mokhova/pens/public/" target="_blank">Codepen</a></li>
+      <li><a class="contact-links" href="mailto:mokhova.ekaterina@gmail.com" target="_blank">Email</a></li>
+    </ul>
+    <p>
+      Работала в веб-студии <a href="jetsyle.ru" target="_blank">Jetstyle</a>,
+      а последние 5 лет работаю в <a href="kontur.ru">Контуре</a>.
+      Мне нравится работать над продуктами: можно подробно изучить область,
+      задачу клиента, пользователей, эксперементировать.
+      И все это—чтобы подарить легкость и радость в решении задач.
+    </p>
+  </header>
+  <main>
+    <h2>Контур.Биллинг</h2>
+    <p>
+      Биллинг—сервис для продажи продуктов Контура. Пользователи: отделы продаж компании
+      и партнеры. В Биллинге они выставляют счета, готовят юридические документы, отслеживают
+      оплаты и выдают сертификаты электронной подписи.
+    </p>
+    <p>
+      Старый биллинг не менялся 10 лет и приносил много проблем:
+      интерфейсу обучаются 3 дня, некоторые компании отказываются от партнерства.
+    </p>
+    <p>Контур решил создать новый Биллинг. Моя задача:</p>
+    <ul class="paragraph-list">
+      <li>изучить аудиторию и сценарии;</li>
+      <li>создать концепт продукта с аналитиками;</li>
+      <li>сделать интерфейс понятным без обучения;</li>
+      <li>отвечать на вопросы пользователей об интерфейсе;</li>
+      <li>собирать обратную связь от пользователей;</li>
+      <li>писать тексты новостей, помощи, писем и т.д.</li>
+    </ul>
+    <div class="fotorama"
+          data-width="1000px"
+          data-transition="dissolve"
+          data-hash="true">
+      <img src="img/cs-1.png" width="1000" data-caption="Старый биллинг «Клиент-Сервис»">
+      <img src="img/billing.png" data-caption="Главная нового биллинга">
+    </div>
+    <h3>Персональная сводка</h3>
+    <p>
+      Каждый партнер работает с клиентом по-своему, но есть общие для всех этапы:
+      оплата счетов, получение денег от Контура по актам, продление сервисов.
+      В старом биллинге информация разбросана по интерфейсу в виде списков
+      без итоговых сумм. Списки большие, их нельзя фильтровать.
+    </p>
+    <p>
+      Главная идея нового интерфейса—сводка на главной по основным этапам,
+      возможность добавить свои выборки клиентов, отсутсвие лишних переходов.
+      Раньше, чтобы посмотреть подробности по клиенту,
+      надо было уходить из списка. В новом интерфейсе карточка клиента рядом со списком,
+      и переход между выборками можно сделать в этом же окне.
+    </p>
+    <div class="fotorama"
+          data-width="1000px"
+          data-transition="dissolve"
+          data-hash="true">
+      <img src="img/cs-2.png" width="1000" data-caption="Главная старого биллинга—список новостей">
+      <img src="img/billing-main.png" data-caption="На новой главной—сводка. Это фильтры по умолчанию">
+      <img src="img/billing-filter.png" data-caption="Редактирование своего фильтра">
+      <img src="img/billing-client.png" data-caption="Клиенты, выбранные фильтром">
+      <img src="img/billing-filter-2.png" data-caption="Выбор другого фильтра">
+    </div>
+    <h3>Потенциальные клиенты</h3>
+    <p>
+      Это клиенты, которые что-то слышали о продуктах Контура, может пользовались
+      демоверсиями, но еще не готовы покупать. Поэтому работа с ними ведется поэтапно,
+      каждый контакт с клиентом планируется.
+    </p>
+    <p>
+      Часто клиент интересуется не одним продуктом,
+      поэтому и появился термин «потенцильная продажа»—интерес по конкретному продукту.
+    </p>
+    <p>
+      В старом интерфейса все продажи во всех статусах шли линейным списком и интерфейс
+      никак не помогал понять, с чем работать в первую очередь, какая загрузка.
+      В новом интерфейсе появились: календарь, чтобы наглядно видеть план на день и месяц,
+      сводка по ключевым статусам, фильтры, чтобы создать свою выборку.
+    </p>
+    <div class="fotorama"
+          data-width="1000px"
+          data-transition="dissolve"
+          data-hash="true">
+      <img src="img/cs-pp.png" data-caption="Старые потенциальные продажи">
+      <img src="img/billing-pp.png" data-caption="Новые потенциальные продажи">
+      <img src="img/cs-pp-1.png" data-caption="Старая карточка">
+      <img src="img/billing-pp-2.png" data-caption="Новая карточка: этапы">
+      <img src="img/billing-pp-3.png" data-caption="Информация из всех источников">
+      <img src="img/billing-pp-4.png" data-caption="Контакты из всех источников">
+      <img src="img/billing-pp-5.png" data-caption="Другие интересы клиента">
+      <img src="img/billing-pp-6.png" data-caption="История">
+    </div>
+    <p>Над этим интерфейсом мы работали совместо с Ксенией Ильиных: вместе продумали концепт,
+      потом разделились дорабатывать детали: я карточку потенциальной продажи, Ксюша—списки.
+    </p>
+    <h3>Приятные мелочи</h3>
+    <p>
+      Для пользователей приятные мелочи: анимации, новогоднее оформление, нескучную загрузку.
+      А с командой обязательно нескучно делимся обратно всязью.
+    </p>
+    <div class="fotorama"
+          data-width="1000px"
+          data-transition="dissolve"
+          data-hash="true">
+      <img src="img/01-stages.gif" width="625">
+      <img src="img/02-success.gif">
+      <img src="img/billing-fun.png" data-caption="Старая карточка">
+      <img src="img/billing-pp-2.png" data-caption="Новая карточка: этапы">
+      <img src="img/billing-pp-3.png" data-caption="Информация из всех источников">
+      <img src="img/billing-pp-4.png" data-caption="Контакты из всех источников">
+      <img src="img/billing-pp-5.png" data-caption="Другие интересы клиента">
+      <img src="img/billing-pp-6.png" data-caption="История">
+    </div>
+  </main>
+  <div class="test-mask"></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+</body>
 </html>
