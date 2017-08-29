@@ -7,8 +7,8 @@
   <title>Катя Мохова—дизайнер интерфесов</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/index.css">
-  <link rel="stylesheet" href="fonts/font.css">
-  <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/font.css">
+  <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -50,7 +50,6 @@
     <div class="fotorama"
           data-width="1000px"
           data-transition="dissolve"
-          data-keyboard="true"
           data-hash="true">
       <img src="img/cs-1.png" width="1000" data-caption="Старый биллинг «Клиент-Сервис»">
       <img src="img/billing.png" data-caption="Главная нового биллинга">
@@ -66,11 +65,16 @@
     <p>
       Главная идея нового интерфейса—это сводка на главной обо всех ключевых этапах.
     </p>
-
-
+    <div class="fotorama"
+          data-width="1000px"
+          data-transition="dissolve"
+          data-hash="true">
+      <img src="img/cs-1.png" width="1000" data-caption="Старый биллинг «Клиент-Сервис»">
+      <img src="img/billing.png" data-caption="Главная нового биллинга">
+    </div>
   </main>
 
-  <script src="node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="node_modules/fotorama/fotorama.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 </body>
 </html>
