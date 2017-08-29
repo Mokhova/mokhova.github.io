@@ -84,13 +84,8 @@ a:hover {
 }
 
 /*.fotorama {
-  width: 1000px;
-  margin: 40px auto;
-}*/
-
-.fotorama {
   position: relative;
   width: 1000px;
   margin: 0 0 0 -500px;
   left: 50%;
-}
+}*/
