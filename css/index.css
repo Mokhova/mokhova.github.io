@@ -9,6 +9,7 @@ header, main {
   width: 650px;
   margin: 50px auto;
   color: #404040;
+  position: relative;
 }
 
 h1 {
@@ -56,7 +57,14 @@ a, ul {
 
 .header-contact {
   display: flex;
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;*/
+}
+
+.transform {
+  position: absolute;
+  top: 115px;
+  left: -210px;
+  transform: rotate(-90deg);
 }
 
 .contact-links {
@@ -66,17 +74,20 @@ a, ul {
 
 a {
   text-decoration: none;
-  color: #008EFF;
+  /*color: #008EFF;*/
+  color: #FF0071;
   font-weight: bold;
 }
 
 a:hover {
-  background-color: #008EFF;
+  /*background-color: #008EFF;*/
+  /*background-color: #FF8F71;*/
+  background-color: #CC1D63;
   color: #fff;
 }
 
 .paragraph-list {
-  margin-top: -8px;
+  margin-top: -6px;
 }
 
 .paragraph-list li {
@@ -88,7 +99,7 @@ a:hover {
   margin-bottom: 24px;
 }
 
-.fotorama {
+.fotorama, .individual {
   position: relative;
   width: 1000px;
   margin: 40px 0 40px -500px;
@@ -99,11 +110,22 @@ a:hover {
   margin-top: -20px;
 }
 
-.test-mask {
-  width: 100px;
-  height: 126px;
-  background-image: url(https://images.unsplash.com/photo-1500475329549-34525c4b857b?dpr=2&auto=format&fit=crop&w=1500&h=2001&q=80&cs=tinysrgb&crop=);
+.fotorama + h2 {
+  margin-top: 80px;
+}
+
+.personal-mask {
+  width: 150px;
+  height: 150px;
+  -webkit-clip-path: polygon(80% 0, 0 73%, 100% 100%);
+  clip-path: polygon(80% 0, 0 73%, 100% 100%);
   background-attachment: fixed;
-  mask: url(../ship-small.svg) no-repeat;
-  -webkit-mask: url(../ship-small.svg) no-repeat;
+  background-image: url("../img/me-1.jpg");
+  background-position: 71% 12%;
+  background-size: 12%;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+  top: -10px;
+  z-index: 10;
 }
