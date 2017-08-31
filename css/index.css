@@ -125,13 +125,13 @@ a:hover {
 
 .personal-mask {
   width: 150px;
-  height: 150px;
+  height: 170px;
   -webkit-clip-path: polygon(100% 8%, 0 42%, 75% 100%);
   clip-path: polygon(100% 8%, 0 42%, 75% 100%);
   background-attachment: fixed;
   background-image: url("../img/me-3.jpg");
-  background-position: 71% 9%;
-  background-size: 12%;
+  background-position: 73% 12%;
+  background-size: 13%;
   background-repeat: no-repeat;
   position: absolute;
   right: 0;
