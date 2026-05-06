@@ -52,6 +52,7 @@ p {
   line-height: 24px;
   margin-top: 0;
   margin-bottom: 12px;
+  font-weight: 300;
 }
 
 p + h3 {
@@ -104,6 +105,7 @@ a:hover {
 
 .paragraph-list li {
   margin-bottom: 12px;
+  font-weight: 300;
 }
 
 .paragraph-list li::before {
