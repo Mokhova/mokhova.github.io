@@ -155,6 +155,9 @@
 }
 .link:hover { box-shadow: inset 0 -1px 0 0 var(--red-2); }
 
+/* разделитель внутри карточки опыта — сплошной, без градиентных хвостов */
+.step__rule { background: rgba(24, 35, 46, 0.2); }
+
 /* ---------- work --------------------------------------------------------- */
 .section--work { padding: 64px 60px 100px; gap: 36px; }
 .work { width: 1160px; display: flex; flex-direction: column; gap: 12px; }
@@ -224,7 +227,7 @@
   pointer-events: none;
 }
 
-a.case:hover { transform: translateY(-4px); box-shadow: var(--sh-card-strong); }
+a.case:hover { transform: translateY(-4px); }
 a.case:hover .case__glow { opacity: 1; }
 a.case:hover .case__shot::after { opacity: 0.85; }
 a.case:hover .case__head { color: var(--ink); }
