@@ -21,6 +21,24 @@
    всегда, прячется при скролле вниз, возвращается при скролле вверх */
 .nav { color: rgba(24, 35, 46, 0.8); }
 
+/* ---------- avatar ------------------------------------------------------- */
+/* на десктопе мелкий аватар в шапке дублирует большой портрет в герое,
+   поэтому показываем его только после того, как портрет ушёл под шапку */
+@media (min-width: 1024px) {
+  .avatar.avatar--deferred {
+    opacity: 0;
+    transform: scale(0.72);
+    pointer-events: none;
+    transition: opacity 0.35s var(--ease), transform 0.35s var(--ease-out);
+  }
+  .avatar.avatar--deferred.is-shown {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .avatar.avatar--deferred.is-shown:hover { transform: scale(1.08) rotate(-3deg); }
+}
+
 /* ---------- hero --------------------------------------------------------- */
 .hero {
   padding: 0;
