@@ -144,8 +144,6 @@
       if (header) {
         if (y > 140 && y > lastY + 4) header.classList.add('is-hidden');
         else if (y < lastY - 4 || y < 140) header.classList.remove('is-hidden');
-        // над геройским градиентом шапка без подложки, дальше — матовая
-        header.classList.toggle('is-top', y < 24);
       }
       lastY = y;
 
