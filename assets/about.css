@@ -1,15 +1,15 @@
 /* ===========================================================================
-   About — вторая редакция, по макету «MacBook Air - 2» (645:2578).
-   Токены, типографика, футер, моушен и секция опыта приезжают из style.css:
+   Главная — по макету «MacBook Air - 3» (664:5039).
+   Токены, типографика, шапка, футер и моушен приезжают из style.css:
    обе страницы сайта живут в одной системе.
    =========================================================================== */
 
 :root {
   --hero-1: #fff9f3;
   --hero-2: #fde2c8;
-  --name-1: rgba(222, 100, 194, 0.4);
+  --name-1: #e561d3;
   --name-2: #f19d4c;
-  --soon: #ff6644;
+  --soon: #4dbace;
   --glow: #ffc389;
 }
 
@@ -41,18 +41,17 @@
 
 /* ---------- hero --------------------------------------------------------- */
 .hero {
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 128px 0 40px;
   border-radius: 0 0 var(--r-44) var(--r-44);
   overflow: clip;
   /* промежуточные стопы сняты пипеткой с экспорта макета: у Figma кривая
      интерполяции не совпадает с CSS, двух стопов не хватало */
-  background: linear-gradient(151deg,
-    #fef9f3 2%, #fef5ed 26%, #fcead8 50%, #fce1c7 74%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 72px;
-  padding: 80px 0 56px;
+  background: linear-gradient(147.7deg,
+    #fff9f3 19.6%, #fef4eb 36%, #fdebdc 53%, #fde2c8 69.2%);
 }
 
 .hero__stack {
@@ -72,15 +71,16 @@
   flex: none;
 }
 .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.hero__copy { display: flex; flex-direction: column; align-items: center; gap: 4px; width: 100%; }
+
+.hero__copy { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
 
 .hero__title {
   font-weight: 600;
   font-size: 84px;
-  line-height: 74px;
+  line-height: 72px;
   text-align: center;
   text-transform: none;
-  background-image: linear-gradient(4deg, var(--name-1) 0%, var(--name-2) 100%);
+  background-image: linear-gradient(5.5deg, var(--name-1) 3.9%, var(--name-2) 82.3%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -88,7 +88,7 @@
 
 .hero__sub {
   font-family: var(--font);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 36px;
   line-height: 36px;
   text-align: center;
@@ -103,6 +103,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  opacity: 0.7;
 }
 .chips li {
   height: 36px;
@@ -111,10 +112,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 40px;
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  color: rgba(24, 35, 46, 0.78);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--ink);
 }
 .logo { display: block; height: auto; }
 .logo--jetstyle { width: 79px; }
@@ -135,7 +134,7 @@
   width: 1160px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 20px;
 }
 .skills__row {
   display: block;
@@ -150,22 +149,80 @@
 .skills__note {
   position: absolute;
   left: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-left: 14px;
+  top: 4px;
+  margin-left: 12px;
   font-family: var(--font);
   font-weight: 500;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 16px;
   color: rgba(24, 35, 46, 0.3);
   white-space: nowrap;
   text-align: left;
 }
 
 /* ---------- experience --------------------------------------------------- */
-.section--experience { padding: 0 60px 100px; gap: 28px; }
-.job__head { display: flex; align-items: baseline; gap: 12px; }
-.job__head .dim { color: rgba(24, 35, 46, 0.35); }
+.section--experience { padding: 64px 60px 100px; gap: 20px; }
+
+/* белая карточка резюме, 800 по макету */
+.resume {
+  width: 800px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 48px;
+  border-radius: var(--r-44);
+  background: #fff;
+}
+
+.job { display: flex; flex-direction: column; gap: 8px; }
+
+.job__head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+  color: rgba(24, 35, 46, 0.8);
+}
+.job__head .dim { font-weight: 400; color: rgba(0, 0, 0, 0.25); }
+
+.job__rule { height: 1px; background: rgba(24, 35, 46, 0.1); }
+
+.job__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.job__list li {
+  position: relative;
+  padding-left: 18px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(24, 35, 46, 0.8);
+}
+/* маркер из макета — четырёхлучевая звёздочка, а не точка */
+.job__list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 10px;
+  line-height: 20px;
+  color: rgba(24, 35, 46, 0.8);
+}
+.job__plain {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(24, 35, 46, 0.8);
+}
+
 /* блок, но по ширине текста — иначе подчёркивание растягивается на всю строку */
 .link--own-line { display: block; width: fit-content; }
 /* подчёркивание текстом, а не тенью бокса: тогда оно идёт ровно по словам */
@@ -180,7 +237,7 @@
 .link:hover { text-decoration-color: var(--red-2); }
 
 /* ---------- work --------------------------------------------------------- */
-.section--work { padding: 64px 60px 100px; gap: 36px; }
+.section--work { padding: 64px 60px 100px; gap: 20px; }
 .work { width: 1160px; display: flex; flex-direction: column; gap: 12px; }
 
 .case {
@@ -188,6 +245,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  height: 748px;
   padding: 28px 40px;
   border-radius: var(--r-24);
   background: var(--surface);
@@ -207,18 +265,42 @@
   font-size: 24px;
   line-height: 24px;
   color: rgba(24, 35, 46, 0.8);
+  transition: color 0.5s var(--ease-out);
 }
-.case__head .dim { color: rgba(24, 35, 46, 0.4); }
+.case__name { white-space: nowrap; }
+.case__head .dim { font-weight: 400; color: rgba(24, 35, 46, 0.3); }
 .case__head .soon { color: var(--soon); }
-.case__tags { color: rgba(24, 35, 46, 0.4); white-space: nowrap; }
+.case__tags {
+  font-weight: 400;
+  color: rgba(24, 35, 46, 0.3);
+  white-space: nowrap;
+}
 
 .case__shot {
   position: relative;
   z-index: 2;
+  flex: 1 0 0;
+  min-height: 0;
   border-radius: var(--r-16);
   overflow: hidden;
 }
-.case__shot img { width: 100%; height: auto; display: block; }
+/* светлая обводка поверх скриншота — есть только у активной карточки */
+.case__shot--framed::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--r-16);
+  pointer-events: none;
+}
+.case__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+  display: block;
+}
 
 /* тёплое пятно, которое проявляется по наведению */
 .case__glow {
@@ -241,6 +323,7 @@
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 4;
   background: radial-gradient(72% 130% at -4% 50%, var(--glow) 0%, rgba(255, 195, 137, 0) 72%);
   mix-blend-mode: multiply;
   opacity: 0;
@@ -256,37 +339,40 @@ a.case:focus-visible .case__glow { opacity: 1; }
 a.case:focus-visible .case__shot::after { opacity: 0.85; }
 
 /* ---------- responsive --------------------------------------------------- */
+@media (max-width: 1279px) {
+  .hero__stack, .skills, .work { width: 100%; }
+  .resume { width: 100%; max-width: 800px; }
+}
+
 @media (max-width: 1023px) {
-  .hero { padding: 96px var(--gutter) 40px; gap: 40px; border-radius: 0 0 28px 28px; }
-  .hero__stack { width: 100%; gap: 32px; }
-  .portrait { width: 160px; height: 160px; border-radius: 12px; }
-  .hero__title { font-size: clamp(38px, 11vw, 84px); line-height: 0.92; }
-  .hero__sub { font-size: clamp(17px, 4.6vw, 36px); line-height: 1.16; }
+  .hero { padding: 116px 24px 40px; gap: 56px; border-radius: 0 0 32px 32px; }
+  .hero__stack { gap: 40px; }
+  .portrait { width: 180px; height: 180px; }
+  .hero__title { font-size: 56px; line-height: 52px; }
+  .hero__sub { font-size: 24px; line-height: 28px; }
   .hero__sub br { display: none; }
-  .chips { flex-wrap: wrap; gap: 8px; }
-  .chips li { height: 32px; padding: 0 16px; }
-  .logo--jetstyle { width: 66px; }
-  .logo--kontur { width: 56px; }
-  .chips .yandex { font-size: 21px; line-height: 21px; }
 
-  .section--skills { padding: 40px var(--gutter) 56px; }
-  .skills { width: 100%; gap: 8px; }
-  .skills__row { font-size: clamp(21px, 5.8vw, 44px); line-height: 1.1; }
-  .skills__note {
-    position: static;
-    transform: none;
-    margin-left: 8px;
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 11px;
-    line-height: 13px;
-  }
+  .section--skills, .section--experience, .section--work { padding: 48px 24px 72px; }
+  .skills { gap: 12px; }
+  .skills__row { font-size: 32px; line-height: 34px; }
+  .skills__note { position: static; display: block; margin: 2px 0 0; text-align: center; }
+  .skills__txt { display: inline; }
 
-  .section--experience { padding: 0 var(--gutter) 56px; }
-  .section--work { padding: 40px var(--gutter) 56px; gap: 24px; }
-  .work { width: 100%; }
-  .case, .case--soon { padding: 16px; gap: 12px; border-radius: 18px; }
-  .case__head { font-size: 15px; line-height: 20px; flex-wrap: wrap; gap: 4px 12px; }
+  .resume { padding: 32px 24px; border-radius: 32px; gap: 24px; }
+  .job__head { font-size: 20px; line-height: 22px; }
+
+  .case, .case--soon { height: auto; padding: 20px; gap: 14px; border-radius: 18px; }
+  .case__head { font-size: 16px; line-height: 20px; flex-wrap: wrap; gap: 4px 12px; }
+  .case__name { white-space: normal; }
   .case__tags { font-size: 13px; }
-  .case__shot { border-radius: 10px; }
+  .case__shot { flex: none; border-radius: 10px; }
+  .case__shot img { height: auto; }
+}
+
+@media (max-width: 599px) {
+  .hero__title { font-size: 40px; line-height: 38px; }
+  .hero__title br { display: none; }
+  .hero__sub { font-size: 19px; line-height: 24px; }
+  .skills__row { font-size: 24px; line-height: 26px; }
+  .chips { flex-wrap: wrap; }
 }
