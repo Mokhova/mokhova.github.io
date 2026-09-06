@@ -5,10 +5,12 @@
    =========================================================================== */
 
 :root {
-  --hero-1: #fff9f3;
-  --hero-2: #fde2c8;
-  --name-1: #e561d3;
-  --name-2: #f19d4c;
+  --hero-1: #fff8f0;
+  --hero-2: #f9c48c;
+  /* акценты имени взяты из палитры кейса (#fb742c и розовое свечение) и
+     притемнены до 3:1 на светлом конце героя — крупный текст проходит AA */
+  --name-1: #dd2f92;
+  --name-2: #dd5406;
   --soon: #4dbace;
   --glow: #ffc389;
 }
@@ -46,13 +48,106 @@
   align-items: center;
   gap: 80px;
   padding: 128px 0 40px;
+  position: relative;
   border-radius: 0 0 var(--r-44) var(--r-44);
   overflow: clip;
   /* промежуточные стопы сняты пипеткой с экспорта макета: у Figma кривая
      интерполяции не совпадает с CSS, двух стопов не хватало */
-  background: linear-gradient(147.7deg,
-    #fff9f3 19.6%, #fef4eb 36%, #fdebdc 53%, #fde2c8 69.2%);
+  /* угол и крайние стопы — как у героя кейса (125.75deg, 0.85%…98.83%),
+     промежуточные добавлены, чтобы переход шёл ровно */
+  background: linear-gradient(125.75deg,
+    #fff8f0 0.85%, #fdefe2 40%, #fce0c2 72%, #f9c48c 98.83%);
 }
+
+/* ---------- линия прогресса чтения -------------------------------------- */
+/* тянется по мере скролла; там, где scroll() не поддерживается, остаётся
+   в scaleX(0), то есть просто невидима — ломаться нечему */
+.scroll-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 500;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--name-2), var(--name-1));
+  pointer-events: none;
+}
+@supports (animation-timeline: scroll()) {
+  .scroll-line {
+    animation: scroll-line linear both;
+    animation-timeline: scroll(root);
+  }
+  @keyframes scroll-line { to { transform: scaleX(1); } }
+}
+
+/* ---------- эффекты на скролл ------------------------------------------- */
+/* только там, где браузер умеет привязывать анимацию к скроллу; всё держится
+   на transform, а `both` до начала диапазона держит первый кадр, то есть
+   исходное положение — сломаться и спрятать контент нечему */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    /* содержимое героя чуть отступает вглубь, пока уезжает за верхний край */
+    .hero__stack {
+      animation: hero-recede linear both;
+      animation-timeline: view();
+      animation-range: exit -20% exit 100%;
+    }
+    @keyframes hero-recede {
+      to { transform: translateY(-34px) scale(0.965); }
+    }
+
+    /* скриншот работы наезжает на место, а не просто появляется */
+    .case__shot img {
+      animation: shot-settle linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 42%;
+    }
+    @keyframes shot-settle {
+      from { transform: scale(1.07); }
+      to { transform: scale(1); }
+    }
+  }
+}
+
+/* ---------- живой фон героя --------------------------------------------- */
+/* два тёплых пятна медленно дышат под контентом; чисто декоративные,
+   двигаются только трансформом и гаснут при prefers-reduced-motion */
+.hero__aura {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.5;
+  pointer-events: none;
+  will-change: transform;
+}
+.hero__aura--a {
+  left: -14%;
+  top: -4%;
+  width: 42%;
+  height: 52%;
+  opacity: 0.3;
+  background: radial-gradient(circle, #ffc2e4 0%, rgba(255, 194, 228, 0) 70%);
+  animation: aura-a 19s var(--ease) infinite alternate;
+}
+.hero__aura--b {
+  right: -12%;
+  bottom: -16%;
+  width: 56%;
+  height: 64%;
+  opacity: 0.42;
+  background: radial-gradient(circle, #ffbe7a 0%, rgba(255, 190, 122, 0) 70%);
+  animation: aura-b 23s var(--ease) infinite alternate;
+}
+@keyframes aura-a {
+  to { transform: translate3d(9%, 12%, 0) scale(1.14); }
+}
+@keyframes aura-b {
+  to { transform: translate3d(-11%, -9%, 0) scale(1.1); }
+}
+.hero > *:not(.hero__aura) { position: relative; z-index: 1; }
 
 .hero__stack {
   width: 1000px;
@@ -87,6 +182,7 @@
 }
 
 .hero__sub {
+  text-wrap: pretty;
   font-family: var(--font);
   font-weight: 500;
   font-size: 36px;
@@ -146,6 +242,23 @@
   text-transform: uppercase;
 }
 .skills__txt { position: relative; display: inline-block; }
+
+/* верхняя строка навыков: знак и подпись в одну строку по центру */
+.skills__row--claude {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  color: var(--ink);
+}
+.skills__mark {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  display: block;
+}
+.skills__mark img,
+.skills__mark svg { width: 100%; height: 100%; display: block; }
 .skills__note {
   position: absolute;
   left: 100%;
@@ -250,7 +363,7 @@
   border-radius: var(--r-24);
   background: var(--surface);
   overflow: clip;                       /* тёплое пятно ховера не должно вылезать */
-  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+  transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out);
 }
 .case--soon { padding-bottom: 40px; }
 
@@ -331,10 +444,14 @@
   pointer-events: none;
 }
 
-a.case:hover { transform: translateY(-4px); }
-a.case:hover .case__glow { opacity: 1; }
-a.case:hover .case__shot::after { opacity: 0.85; }
-a.case:hover .case__head { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  a.case:hover { transform: translateY(-4px); }
+  a.case:hover .case__glow { opacity: 1; }
+  a.case:hover .case__shot::after { opacity: 0.85; }
+  a.case:hover .case__head { color: var(--ink); }
+}
+/* отклик на нажатие: карточка чуть проседает под пальцем */
+a.case:active { transform: translateY(-1px) scale(0.995); }
 a.case:focus-visible .case__glow { opacity: 1; }
 a.case:focus-visible .case__shot::after { opacity: 0.85; }
 
@@ -398,21 +515,16 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
 .h3 .dim,
 .h2 .dim { color: rgba(24, 35, 46, 0.4); }
 
-/* подчёркивание пунктов меню выезжает по ховеру */
-.nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -3px;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  transition: transform 0.35s var(--ease-out);
-}
-.nav a:hover::after,
-.nav a.is-current::after { transform: scaleX(1); }
+/* подчёркиваний в меню нет: наведение и текущий раздел отдаются цветом,
+   это делает общий стиль (.nav a:hover / .nav a.is-current) */
 
-/* у переключателя языка текущий пункт помечен цветом, а не линией */
-.lang a.is-current::after { display: none; }
+
+/* ===========================================================================
+   Спокойный режим: новое движение выключается целиком, декоративные пятна
+   остаются на месте, линия прогресса просто не растёт.
+   =========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .hero__aura { animation: none !important; }
+  .scroll-line { animation: none !important; transform: scaleX(0) !important; }
+  a.case:active { transform: none; }
+}
