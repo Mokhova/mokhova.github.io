@@ -278,7 +278,8 @@
      ---------------------------------------------------------------------
      Есть только там, где в герое стоит большой портрет: пока портрет виден,
      мелкая копия в шапке — лишний дубль, поэтому она проявляется ровно
-     в тот момент, когда портрет целиком уехал под шапку.
+     в тот момент, когда портрет целиком уехал под шапку. На мобильном
+     герой — цельная карточка, поэтому там ждём, пока уедет она целиком.
      --------------------------------------------------------------------- */
   function initAvatarReveal() {
     var avatar = document.querySelector('.avatar');
@@ -287,10 +288,12 @@
 
     avatar.classList.add('avatar--deferred');
     var header = document.getElementById('header');
+    var hero = document.querySelector('.hero');
 
     function sync() {
       var h = header ? header.offsetHeight : 88;
-      avatar.classList.toggle('is-shown', portrait.getBoundingClientRect().bottom <= h);
+      var anchor = (hero && window.innerWidth <= 759) ? hero : portrait;
+      avatar.classList.toggle('is-shown', anchor.getBoundingClientRect().bottom <= h);
     }
 
     sync();
@@ -315,6 +318,86 @@
     });
   }
 
+  /* -----------------------------------------------------------------------
+     7. Шторка с контактами
+     ---------------------------------------------------------------------
+     Открывается кнопкой в нижней таблетке. Закрывается по фону, по Esc и
+     свайпом вниз; пока открыта — страница под ней не скроллится, а фокус
+     уходит на первую ссылку и возвращается на кнопку после закрытия.
+     --------------------------------------------------------------------- */
+  function initSheets() {
+    var openers = [].slice.call(document.querySelectorAll('[data-sheet]'));
+    if (!openers.length) return;
+
+    var current = null;
+    var opener = null;
+
+    function open(sheet, btn) {
+      current = sheet;
+      opener = btn || null;
+      sheet.hidden = false;
+      document.body.classList.add('is-locked');
+      // кадр на раскладку, иначе переход от transform не проиграет
+      requestAnimationFrame(function () {
+        requestAnimationFrame(function () { sheet.classList.add('is-open'); });
+      });
+      var first = sheet.querySelector('.sheet__list a');
+      if (first) first.focus({ preventScroll: true });
+    }
+
+    function close() {
+      if (!current) return;
+      var sheet = current;
+      current = null;
+      sheet.classList.remove('is-open');
+      document.body.classList.remove('is-locked');
+      if (opener) { opener.focus({ preventScroll: true }); opener = null; }
+      var panel = sheet.querySelector('.sheet__panel');
+      var done = function () { if (!sheet.classList.contains('is-open')) sheet.hidden = true; };
+      if (panel && getComputedStyle(panel).transitionDuration !== '0s') {
+        panel.addEventListener('transitionend', done, { once: true });
+        setTimeout(done, 600);
+      } else {
+        done();
+      }
+    }
+
+    openers.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var sheet = document.getElementById(btn.getAttribute('data-sheet'));
+        if (sheet) open(sheet, btn);
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      var hit = e.target.closest ? e.target.closest('[data-sheet-close]') : null;
+      if (hit) close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && current) close();
+    });
+
+    // свайп вниз по шторке закрывает её
+    var y0 = null;
+    document.addEventListener('touchstart', function (e) {
+      if (!current) return;
+      var panel = current.querySelector('.sheet__panel');
+      y0 = (panel && panel.scrollTop <= 0) ? e.touches[0].clientY : null;
+    }, { passive: true });
+    document.addEventListener('touchmove', function (e) {
+      if (y0 === null) return;
+      if (e.touches[0].clientY - y0 > 70) { y0 = null; close(); }
+    }, { passive: true });
+    document.addEventListener('touchend', function () { y0 = null; }, { passive: true });
+
+    // ссылка внутри шторки уводит со страницы — закрываем, чтобы не осталась открытой
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest ? e.target.closest('.sheet__list a') : null;
+      if (a && current) setTimeout(close, 60);
+    });
+  }
+
   /* --------------------------------------------------------------------- */
   var fitTimer;
   function onResize() {
@@ -325,6 +408,7 @@
   function boot() {
     guardImages();
     initAvatarReveal();
+    initSheets();
     initReveal();
     initCounters();
     fitStages();
