@@ -69,8 +69,8 @@
     </div>
     <ul class="chips">
       <li><img class="logo logo--jetstyle" src="../assets/jet-logo.svg" alt="Jetstyle" width="79" height="10"></li>
-      <li><img class="logo logo--yandex" src="../assets/yandex-logo.svg" alt="Яндекс" width="57" height="21"></li>
-      <li><img class="logo logo--kontur" src="../assets/kontur-logo.svg" alt="Контур" width="68" height="18"></li>
+      <li class="chip--yandex"><img class="logo logo--yandex" src="../assets/yandex-logo.svg" alt="Яндекс" width="57" height="21"></li>
+      <li class="chip--kontur"><img class="logo logo--kontur" src="../assets/kontur-logo.svg" alt="Контур" width="68" height="18"></li>
     </ul>
   </section>
 
@@ -174,10 +174,13 @@
 
 </main>
 <nav class="dock" aria-label="Разделы">
-  <a href="#top">привет</a>
   <a href="#skills">навыки</a>
   <a href="#experience">опыт</a>
   <a href="#work">работы</a>
+  <span class="dock__lang" role="group" aria-label="Язык">
+    <a href="../" hreflang="en">en</a>
+    <a href="#" class="is-current" aria-current="true" hreflang="ru">ru</a>
+  </span>
   <button class="dock__cta" type="button" data-sheet="contacts">контакты</button>
 </nav>
 
