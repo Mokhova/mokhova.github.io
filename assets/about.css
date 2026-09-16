@@ -509,8 +509,11 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
    резюме — белой карточкой с полями 4px, работы почти во всю ширину с полями 2px.
    --------------------------------------------------------------------------- */
 @media (max-width: 759px) {
-  /* полотно снова начинается под шапкой: герой теперь карточка, а не полоса */
-  .page { padding-top: 56px; }
+  /* шапки и линии прогресса на мобильном нет: вся навигация уехала в таблетку */
+  .header { display: none; }
+  .scroll-line { display: none; }
+  /* полотно начинается сразу: сверху у карточки героя такое же поле, как по бокам */
+  .page { padding-top: 4px; }
 
   .hero {
     margin: 0 4px;
@@ -530,6 +533,9 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
   .hero__sub { font-size: 20px; line-height: 22px; }
   .chips { gap: 8px; opacity: 0.8; }
   .chips li { height: 32px; padding: 0 18px; }
+  /* оптическая подгонка знаков: по центру бокса они стоят чуть вразнобой */
+  .chips li.chip--kontur { padding-top: 3px; }
+  .chips li.chip--yandex { padding-bottom: 1px; }
 
   .section--skills { padding: 64px 20px 100px; gap: 12px; }
   .skills { gap: 16px; }
@@ -540,7 +546,7 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
   .skills__note br { display: none; }
   .skills__row--claude .skills__note { display: none; }
   .skills__row--claude { align-items: center; }
-  .skills__mark { margin-top: 0; }
+  .skills__mark { margin-top: 0; margin-bottom: 2px; }
 
   .section--experience { padding: 28px 0 100px; gap: 12px; }
   .resume {
@@ -556,7 +562,12 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
   .job__list li { padding-left: 13px; font-weight: 500; }
   .job__list li::before { content: '•'; font-size: 16px; line-height: 20px; }
   .job__plain { font-weight: 500; }
-  .job__rule { margin: 0 -28px; }
+  /* линия во всю ширину карточки, но с растворёнными краями */
+  .job__rule {
+    margin: 0 -28px;
+    background: linear-gradient(90deg,
+      rgba(24, 35, 46, 0.02) 0%, rgba(24, 35, 46, 0.1) 50%, rgba(24, 35, 46, 0.02) 100%);
+  }
 
   .section--work { padding: 28px 0 100px; gap: 20px; }
   .work { gap: 4px; }
@@ -589,6 +600,43 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
   .case__years::after { content: ')'; }
 
   /* ---------- нижняя таблетка: «контакты» вместо почты ------------------ */
+  /* ---------- нижняя таблетка ----------------------------------------- */
+  /* русские подписи длиннее английских, а слотов стало на один больше,
+     поэтому кегль на мобильном 12: иначе «навыки» и «работы» не влезают на 360 */
+  .dock a { font-size: 12px; padding: 13px 2px; }
+
+  /* ---------- язык в таблетке ---------------------------------------- */
+  /* обе метки видны сразу: активная тёмная, вторая приглушённая — понятно,
+     на каком языке страница и куда ведёт нажатие */
+  .dock__lang {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+    margin-left: 2px;
+    margin-right: 4px;
+    padding-left: 7px;
+    border-left: 1px solid rgba(24, 35, 46, 0.14);
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .dock__lang a {
+    flex: 0 0 auto;
+    padding: 13px 3px;
+    border-radius: 999px;
+    color: rgba(24, 35, 46, 0.32);
+    transition: color 0.25s var(--ease), transform 0.14s var(--ease-out);
+  }
+  .dock__lang a.is-current {
+    background: none;
+    font-weight: 600;
+    color: var(--ink);
+    pointer-events: none;
+  }
+  .dock__lang a:active { transform: scale(0.9); }
+
   .dock button.dock__cta {
     flex: 0 0 auto;
     border: 0;
@@ -719,18 +767,19 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
   padding: 16px 18px;
   border-radius: 16px;
   background: rgba(24, 35, 46, 0.045);
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
   line-height: 20px;
-  color: var(--ink);
+  color: rgba(24, 35, 46, 0.45);
   transition: background 0.25s var(--ease), transform 0.14s var(--ease-out);
 }
+/* сам контакт — главное в строке, подпись слева только называет его */
 .sheet__list a span {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
   text-align: right;
-  color: rgba(24, 35, 46, 0.45);
+  color: var(--ink);
 }
 .sheet__list a:active { transform: scale(0.985); }
 @media (hover: hover) and (pointer: fine) {
