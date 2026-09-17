@@ -28,9 +28,9 @@
   <div class="header__inner">
     <nav class="nav">
       <a href="#top">just saying hi</a>
-      <a href="#skills">skills</a>
-      <a href="#experience">experience</a>
-      <a href="#work">work</a>
+      <a href="#skills" data-nav="skills">skills</a>
+      <a href="#experience" data-nav="experience">experience</a>
+      <a href="#work" data-nav="work">work</a>
     </nav>
     <a class="avatar avatar--deferred" href="#top" aria-label="To the top">
       <img src="assets/avatar.png" alt="">
@@ -174,12 +174,10 @@
 
 </main>
 <nav class="dock" aria-label="Sections">
-  <a href="#skills">skills</a>
-  <a href="#experience">exp</a>
-  <a href="#work">work</a>
-  <span class="dock__lang" role="group" aria-label="Language">
-    <a href="#" class="is-current" aria-current="true" hreflang="en">en</a>
-    <a href="ru/" hreflang="ru">ru</a>
+  <span class="dock__sections">
+    <a href="#skills" data-nav="skills">skills</a>
+    <a href="#experience" data-nav="experience">exp</a>
+    <a href="#work" data-nav="work">work</a>
   </span>
   <button class="dock__cta" type="button" data-sheet="contacts">contact</button>
 </nav>
