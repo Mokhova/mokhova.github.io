@@ -28,9 +28,9 @@
   <div class="header__inner">
     <nav class="nav">
       <a href="#top">просто привет</a>
-      <a href="#skills">навыки</a>
-      <a href="#experience">опыт</a>
-      <a href="#work">работы</a>
+      <a href="#skills" data-nav="skills">навыки</a>
+      <a href="#experience" data-nav="experience">опыт</a>
+      <a href="#work" data-nav="work">работы</a>
     </nav>
     <a class="avatar avatar--deferred" href="#top" aria-label="To the top">
       <img src="../assets/avatar.png" alt="">
@@ -174,12 +174,10 @@
 
 </main>
 <nav class="dock" aria-label="Разделы">
-  <a href="#skills">навыки</a>
-  <a href="#experience">опыт</a>
-  <a href="#work">работы</a>
-  <span class="dock__lang" role="group" aria-label="Язык">
-    <a href="../" hreflang="en">en</a>
-    <a href="#" class="is-current" aria-current="true" hreflang="ru">ru</a>
+  <span class="dock__sections">
+    <a href="#skills" data-nav="skills">навыки</a>
+    <a href="#experience" data-nav="experience">опыт</a>
+    <a href="#work" data-nav="work">работы</a>
   </span>
   <button class="dock__cta" type="button" data-sheet="contacts">контакты</button>
 </nav>
