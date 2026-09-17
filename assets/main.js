@@ -296,7 +296,10 @@
     function sync() {
       var h = header ? header.offsetHeight : 88;
       var anchor = (hero && window.innerWidth <= 759) ? hero : portrait;
-      avatar.classList.toggle('is-shown', anchor.getBoundingClientRect().bottom <= h);
+      var past = anchor.getBoundingClientRect().bottom <= h;
+      avatar.classList.toggle('is-shown', past);
+      // пока герой виден, шапка на мобильном пустая: ни фона, ни аватарки
+      if (header) header.classList.toggle('is-bare', !past);
     }
 
     sync();
