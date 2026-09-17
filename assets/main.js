@@ -115,7 +115,7 @@
     var chapters = [].slice.call(document.querySelectorAll('.chapter'));
     // на главной глав нет: активный раздел считаем по секциям с id, на которые
     // показывают ссылки нижней таблетки
-    if (!chapters.length) chapters = [].slice.call(document.querySelectorAll('.section[id]'));
+    if (!chapters.length) chapters = [].slice.call(document.querySelectorAll('.hero[id], .section[id]'));
     var navLinks = [].slice.call(document.querySelectorAll('[data-nav]'));
 
     var lastY = window.pageYOffset;
@@ -280,9 +280,8 @@
      6. Аватар в шапке
      ---------------------------------------------------------------------
      Есть только там, где в герое стоит большой портрет: пока портрет виден,
-     мелкая копия в шапке — лишний дубль, поэтому она проявляется ровно
-     в тот момент, когда портрет целиком уехал под шапку. На мобильном
-     герой — цельная карточка, поэтому там ждём, пока уедет она целиком.
+     мелкая копия в шапке — лишний дубль. Как только фото уехало под шапку,
+     появляется и аватарка, и фон у меню.
      --------------------------------------------------------------------- */
   function initAvatarReveal() {
     var avatar = document.querySelector('.avatar');
@@ -291,14 +290,12 @@
 
     avatar.classList.add('avatar--deferred');
     var header = document.getElementById('header');
-    var hero = document.querySelector('.hero');
 
     function sync() {
       var h = header ? header.offsetHeight : 88;
-      var anchor = (hero && window.innerWidth <= 759) ? hero : portrait;
-      var past = anchor.getBoundingClientRect().bottom <= h;
+      var past = portrait.getBoundingClientRect().bottom <= h;
       avatar.classList.toggle('is-shown', past);
-      // пока герой виден, шапка на мобильном пустая: ни фона, ни аватарки
+      // пока фото видно, шапка на мобильном пустая: ни фона, ни аватарки
       if (header) header.classList.toggle('is-bare', !past);
     }
 
@@ -319,7 +316,10 @@
       var target = id ? document.getElementById(id) : null;
       if (!target) return;
       e.preventDefault();
-      var top = target.getBoundingClientRect().top + window.pageYOffset - 88;
+      // отступ по реальной высоте шапки: на мобильном она 48, а не 88
+      var head = document.getElementById('header');
+      var off = head ? head.offsetHeight : 88;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - off;
       window.scrollTo({ top: top, behavior: reduced ? 'auto' : 'smooth' });
     });
   }
