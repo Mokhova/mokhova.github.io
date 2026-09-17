@@ -113,6 +113,9 @@
     var heroTitle = document.querySelector('[data-hero-title]');
     var parallax = [].slice.call(document.querySelectorAll('[data-parallax], [data-blob]'));
     var chapters = [].slice.call(document.querySelectorAll('.chapter'));
+    // на главной глав нет: активный раздел считаем по секциям с id, на которые
+    // показывают ссылки нижней таблетки
+    if (!chapters.length) chapters = [].slice.call(document.querySelectorAll('.section[id]'));
     var navLinks = [].slice.call(document.querySelectorAll('[data-nav]'));
 
     var lastY = window.pageYOffset;
