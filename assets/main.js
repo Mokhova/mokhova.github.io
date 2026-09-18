@@ -292,7 +292,9 @@
     var header = document.getElementById('header');
 
     function sync() {
-      var h = header ? header.offsetHeight : 88;
+      // шапка намеренно вылезает за верхний край экрана, поэтому важна
+      // не её высота, а видимый низ
+      var h = header ? Math.max(0, header.getBoundingClientRect().bottom) : 88;
       var past = portrait.getBoundingClientRect().bottom <= h;
       avatar.classList.toggle('is-shown', past);
       // пока фото видно, шапка на мобильном пустая: ни фона, ни аватарки
@@ -316,9 +318,10 @@
       var target = id ? document.getElementById(id) : null;
       if (!target) return;
       e.preventDefault();
-      // отступ по реальной высоте шапки: на мобильном она 48, а не 88
+      // отступ по видимому низу шапки: на мобильном это 48, а не 88,
+      // и сама шапка при этом вылезает за верхний край экрана
       var head = document.getElementById('header');
-      var off = head ? head.offsetHeight : 88;
+      var off = head ? Math.max(0, head.getBoundingClientRect().bottom) : 88;
       var top = target.getBoundingClientRect().top + window.pageYOffset - off;
       window.scrollTo({ top: top, behavior: reduced ? 'auto' : 'smooth' });
     });
