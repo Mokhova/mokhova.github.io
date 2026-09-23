@@ -545,7 +545,7 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
   .hero__hi { display: none; }
   .hero__title { font-weight: 700; font-size: 48px; line-height: 48px; text-transform: uppercase; }
   .hero__copy { gap: 8px; padding: 0 20px; }
-  .hero__sub { font-size: 20px; line-height: 22px; }
+  .hero__sub { font-size: 20px; line-height: 24px; }
   .chips { gap: 8px; opacity: 0.8; }
   .chips li { height: 32px; padding: 0 18px; }
   /* оптическая подгонка знаков: по центру бокса они стоят чуть вразнобой */
@@ -571,7 +571,7 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
     border-radius: 36px;
     gap: 28px;
   }
-  .job__head { font-size: 20px; line-height: 20px; gap: 8px; }
+  .job__head { font-size: 20px; line-height: 24px; gap: 8px; }
   .job__head .dim { color: rgba(24, 35, 46, 0.25); }
   /* на мобильном в макете обычная точка и текст чуть плотнее по начертанию */
   .job__list li { padding-left: 13px; font-weight: 500; }
@@ -599,7 +599,7 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
     justify-content: center;
     gap: 4px 6px;
     font-size: 20px;
-    line-height: 20px;
+    line-height: 24px;
     text-align: center;
   }
   .case__name { flex: 0 0 100%; white-space: normal; }
@@ -607,7 +607,7 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
   .case__tags {
     font-weight: 600;
     font-size: 20px;
-    line-height: 20px;
+    line-height: 24px;
     color: rgba(24, 35, 46, 0.25);
   }
   .case__tags { margin-left: 0; }
