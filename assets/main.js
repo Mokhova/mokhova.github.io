@@ -104,10 +104,9 @@
   }
 
   /* -----------------------------------------------------------------------
-     3. Scroll-driven layer: progress, header, parallax, sticky hero
+     3. Scroll-driven layer: header, parallax, sticky hero
      --------------------------------------------------------------------- */
   function initScroll() {
-    var progress = document.getElementById('progress');
     var header = document.getElementById('header');
     var heroShot = document.querySelector('.hero__shot');
     var heroTitle = document.querySelector('[data-hero-title]');
@@ -139,10 +138,6 @@
       ticking = false;
       var y = window.pageYOffset;
       var vh = window.innerHeight;
-      var doc = document.documentElement.scrollHeight - vh;
-
-      if (progress) progress.style.transform = 'scaleX(' + (doc > 0 ? y / doc : 0) + ')';
-
       // header: hide going down, show going up; always visible near the top
       if (header) {
         if (y > 140 && y > lastY + 4) header.classList.add('is-hidden');

@@ -70,29 +70,6 @@
   background: linear-gradient(176.73deg, var(--hero-1) 6.5%, var(--hero-2) 142.69%);
 }
 
-/* ---------- линия прогресса чтения -------------------------------------- */
-/* тянется по мере скролла; там, где scroll() не поддерживается, остаётся
-   в scaleX(0), то есть просто невидима — ломаться нечему */
-.scroll-line {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  z-index: 500;
-  transform: scaleX(0);
-  transform-origin: 0 50%;
-  background: linear-gradient(90deg, var(--name-2), var(--name-1));
-  pointer-events: none;
-}
-@supports (animation-timeline: scroll()) {
-  .scroll-line {
-    animation: scroll-line linear both;
-    animation-timeline: scroll(root);
-  }
-  @keyframes scroll-line { to { transform: scaleX(1); } }
-}
-
 /* ---------- эффекты на скролл ------------------------------------------- */
 /* только там, где браузер умеет привязывать анимацию к скроллу; всё держится
    на transform, а `both` до начала диапазона держит первый кадр, то есть
@@ -509,9 +486,6 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
    резюме — белой карточкой с полями 4px, работы почти во всю ширину с полями 2px.
    --------------------------------------------------------------------------- */
 @media (max-width: 759px) {
-  /* линии прогресса на мобильном нет */
-  .scroll-line { display: none; }
-
   /* ---------- шапка лежит поверх героя --------------------------------- */
   /* высоты не занимает: герой начинается от самого верха, как в макете
      «start», а шапка появляется фоном только после того, как герой уехал.
@@ -653,10 +627,9 @@ a.case:focus-visible .case__shot::after { opacity: 0.85; }
 
 /* ===========================================================================
    Спокойный режим: новое движение выключается целиком, декоративные пятна
-   остаются на месте, линия прогресса просто не растёт.
+   остаются на месте.
    =========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   .hero__aura { animation: none !important; }
-  .scroll-line { animation: none !important; transform: scaleX(0) !important; }
   a.case:active { transform: none; }
 }
